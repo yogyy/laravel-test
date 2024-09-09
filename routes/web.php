@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,4 +15,13 @@ Route::get('/about', function () {
     return view('about', [
         'nama' => 'Klein Moretti'
     ]);
+});
+
+Route::get('/jobs', function () {
+    $jobs = Job::all();
+    return view('jobs', ['jobs' => $jobs]);
+});
+
+Route::get('/jobs/{id}', function ($id) {
+    return Job::find($id);
 });
