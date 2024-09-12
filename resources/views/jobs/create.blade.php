@@ -16,8 +16,11 @@
                             <div class="flex rounded-md shadow-sm border focus-within:border-sky-400 sm:max-w-md">
                                 <input type="text" name="title" id="title"
                                     class="block flex-1 border-none bg-transparent py-1.5 px-3 text-foreground placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                                    placeholder="Shift Leader">
+                                    placeholder="Shift Leader" required>
                             </div>
+                            @error('title')
+                                <i class="text-red-400 text-sm">{{ $message }}</i>
+                            @enderror
                         </div>
                     </div>
 
@@ -27,11 +30,21 @@
                             <div class="flex rounded-md shadow-sm border focus-within:border-sky-400 sm:max-w-md">
                                 <input type="text" name="salary" id="salary"
                                     class="block flex-1 bg-transparent py-1.5 px-3 text-foreground placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                                    placeholder="$50,000 Per Year">
+                                    placeholder="$50,000 Per Year" required>
                             </div>
+                            @error('salary')
+                                <i class="text-red-400 text-sm">{{ $message }}</i>
+                            @enderror
                         </div>
                     </div>
                 </div>
+                {{-- @if ($errors->any())
+                    <ul class="text-red-400 text-sm mt-3">
+                        @foreach ($errors->all() as $err)
+                            <li>{{ $err }}</li>
+                        @endforeach
+                    </ul>
+                @endif --}}
             </div>
         </div>
 
