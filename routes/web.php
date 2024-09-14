@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,10 @@ Route::get('/about', function () {
 
 Route::get('/jobs', function () {
     $jobs = Job::with('employer')->latest()->simplePaginate(3);
-    return view('jobs.index', ['jobs' => $jobs]);
+    return view(
+        'jobs.index',
+        ['jobs' => $jobs]
+    );
 });
 
 Route::post('/jobs', function () {
@@ -41,25 +45,22 @@ Route::get('/jobs/create', function () {
     return view('jobs.create');
 });
 
-Route::get('/jobs/{id}', function ($id) {
-    $job = Job::find($id);
+Route::get('/jobs/{job}', function (Job $job) {
     return view('jobs.show', ['job' => $job]);
 });
 
-Route::get('/jobs/{id}/edit', function ($id) {
-    $job = Job::find($id);
+Route::get('/jobs/{job}/edit', function (Job $job) {
     return view('jobs.edit', ['job' => $job]);
 });
 
-Route::patch('/jobs/{id}', function ($id) {
+Route::patch('/jobs/{job}', function (Job $job) {
+    // authorize ...
+
     request()->validate([
         'title' => ['required', 'min:3'],
         'salary' => ['required'],
     ]);
 
-    // authorize ...
-
-    $job = Job::findOrFail($id);
     $job->update([
         'title' => request('title'),
         'salary' => request('salary'),
@@ -68,9 +69,9 @@ Route::patch('/jobs/{id}', function ($id) {
     return redirect('/jobs/' . $job->id);
 });
 
-Route::delete('/jobs/{id}', function ($id) {
+Route::delete('/jobs/{job}', function (Job $job) {
     // authorize ...
-    Job::findOrFail($id)->delete();
+    $job->delete();
 
     return redirect('/jobs');
 });
