@@ -1,9 +1,26 @@
-<div class="border-b border-sky-600/50 py-8 w-full flex items-center">
-    <nav class="flex gap-3 text-xl w-full justify-center">
-        @foreach ($links as $link)
-            <x-nav-link :active="request()->is($link)" href="/{{ $link }}">
-                {{ Str::ucfirst($link) }}
-            </x-nav-link>
-        @endforeach
-    </nav>
+<div class="border-b border-sky-600/50 py-8 w-full flex justify-between px-10 items-center">
+    <div class="flex-1 flex items-center gap-4">
+        <img src="/logo.png" alt="Logo" class="size-9">
+        <nav class="flex gap-3 text-xl ">
+            @foreach ($links as $link)
+                <x-nav-link :active="request()->is($link) || request()->is($link . '/*')" href="/{{ $link }}">
+                    {{ Str::ucfirst($link) }}
+                </x-nav-link>
+            @endforeach
+        </nav>
+    </div>
+    <div class="flex items-center justify-end flex-1">
+        @guest
+            <a class="font-semibold text-foreground hover:text-sky-500 transition-colors" href="/login">Sign
+                In</a>
+        @endguest
+
+        @auth
+            <form method="POST" action="/logout">
+                @csrf
+
+                <x-form-button>Sign Out</x-form-button>
+            </form>
+        @endauth
+    </div>
 </div>
