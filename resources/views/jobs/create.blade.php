@@ -11,30 +11,19 @@
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <label for="title" class="block text-sm font-medium leading-6 text-foreground">Title</label>
+                        <x-form-label for="title">Title</x-form-label>
                         <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm border focus-within:border-sky-400 sm:max-w-md">
-                                <input type="text" name="title" id="title"
-                                    class="block flex-1 border-none bg-transparent py-1.5 px-3 text-foreground placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                                    placeholder="Shift Leader" required>
-                            </div>
-                            @error('title')
-                                <i class="text-red-400 text-sm">{{ $message }}</i>
-                            @enderror
+                            <x-form-input type="text" name="title" id="title" placeholder="CEO" required />
+                            <x-form-error name="title" />
                         </div>
                     </div>
 
                     <div class="sm:col-span-4">
-                        <label for="salary" class="block text-sm font-medium leading-6 text-foreground">Salary</label>
+                        <x-form-label for="salary">Salary</x-form-label>
                         <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm border focus-within:border-sky-400 sm:max-w-md">
-                                <input type="text" name="salary" id="salary"
-                                    class="block flex-1 bg-transparent py-1.5 px-3 text-foreground placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                                    placeholder="$50,000 Per Year" required>
-                            </div>
-                            @error('salary')
-                                <i class="text-red-400 text-sm">{{ $message }}</i>
-                            @enderror
+                            <x-form-input type="text" name="salary" id="salary" placeholder="$50,000 Per Year"
+                                required />
+                            <x-form-error name="salary" />
                         </div>
                     </div>
                 </div>
@@ -48,10 +37,9 @@
             </div>
         </div>
 
-        <div class="mt-6 flex items-center justify-end gap-x-6">
+        <div class="mt-6 flex items-center justify-start gap-x-6">
             <button type="button" class="text-sm font-semibold leading-6 text-foreground">Cancel</button>
-            <button type="submit"
-                class="rounded-md bg-secondary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">Save</button>
+            <x-form-button>Save</x-form-button>
         </div>
     </form>
 </x-layout>

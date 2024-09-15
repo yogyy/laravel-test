@@ -18,29 +18,28 @@
                     <div class="sm:col-span-4">
                         <x-form-label for="name">Name</x-form-label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="name" id="name" placeholder="Constantine"
-                                required />
+                            <x-form-input type="text" name="name" id="name" :value="old('name')" required />
                             <x-form-error name="name" />
                         </div>
                     </div>
                     <div class="sm:col-span-4">
                         <x-form-label for="email">Email</x-form-label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="email" id="email" required />
+                            <x-form-input type="text" name="email" id="email" :value="old('email')" required />
                             <x-form-error name="email" />
                         </div>
                     </div>
                     <div class="sm:col-span-4">
                         <x-form-label for="password">Password</x-form-label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="password" id="password" required />
+                            <x-form-input type="password" name="password" id="password" required />
                             <x-form-error name="password" />
                         </div>
                     </div>
                     <div class="sm:col-span-4">
                         <x-form-label for="password_confirmation">Confirm Password</x-form-label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="password_confirmation" id="password_confirmation"
+                            <x-form-input type="password" name="password_confirmation" id="password_confirmation"
                                 required />
                             <x-form-error name="password_confirmation" />
                         </div>
