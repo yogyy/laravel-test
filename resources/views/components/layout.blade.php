@@ -8,5 +8,5 @@
 
 <body class="bg-background text-foreground">
     <x-navbar></x-navbar>
-    {{ $slot }}
+    <div class="mx-auto px-6 w-full py-10">{{ $slot }}</div>
 </body>
