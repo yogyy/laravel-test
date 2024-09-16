@@ -8,7 +8,7 @@ use Illuminate\View\Component;
 
 class Navbar extends Component
 {
-    public $links = ['home', 'blog', 'about', 'contact'];
+    public $links = ['home', 'jobs', 'about', 'contact'];
 
     public function render(): View|Closure|string
     {
