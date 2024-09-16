@@ -3,6 +3,8 @@
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
+use App\Jobs\TranslateJob;
+use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,6 +16,17 @@ Route::view('/home', 'home');
 Route::view('/about', 'about', [
     'nama' => 'Klein Moretti'
 ]);
+
+Route::get('/test', function () {
+    // dispatch(function () {
+    //     logger('hello from the queue!');
+    // });
+
+    $job = Job::first();
+    TranslateJob::dispatch($job);
+
+    return 'Done';
+});
 
 Route::get('/jobs', [JobController::class, 'index']);
 Route::get('/jobs/create', [JobController::class, 'create']);
