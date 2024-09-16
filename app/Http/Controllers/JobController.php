@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\JobPosted;
 use App\Models\Job;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
@@ -31,9 +28,9 @@ class JobController extends Controller
         return view('jobs.show', ['job' => $job]);
     }
 
-    public function store()
+    public function store(Request $req)
     {
-        request()->validate([
+        $req->validate([
             'title' => ['required', 'min:3'],
             'salary' => ['required'],
         ]);
@@ -56,11 +53,11 @@ class JobController extends Controller
         return view('jobs.edit', ['job' => $job]);
     }
 
-    public function update(Job $job)
+    public function update(Request $req, Job $job)
     {
         // authorize ...
 
-        request()->validate([
+        $req->validate([
             'title' => ['required', 'min:3'],
             'salary' => ['required'],
         ]);
