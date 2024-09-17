@@ -12,11 +12,11 @@
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <x-form-label for="title">Title</x-form-label>
+                        <x-forms.label for="title">Title</x-forms.label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="title" id="title" placeholder="Shift Leader"
+                            <x-forms.input type="text" name="title" id="title" placeholder="Shift Leader"
                                 value="{{ $job->title }}" required />
-                            <x-form-error name="title" />
+                            <x-forms.error name="title" />
                         </div>
                     </div>
 
@@ -42,9 +42,9 @@
             <div class="flex items-center gap-x-6">
                 <button type="button" class="text-sm font-semibold leading-6 text-foreground"
                     onclick="javascript:history.go(-1)">Cancel</button>
-                <x-form-button type="submit">
+                <x-forms.button type="submit">
                     Update
-                </x-form-button>
+                </x-forms.button>
             </div>
         </div>
     </form>

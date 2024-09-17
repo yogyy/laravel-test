@@ -11,19 +11,19 @@
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <x-form-label for="title">Title</x-form-label>
+                        <x-forms.label for="title">Title</x-forms.label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="title" id="title" placeholder="CEO" required />
-                            <x-form-error name="title" />
+                            <x-forms.input type="text" name="title" id="title" placeholder="CEO" required />
+                            <x-forms.error name="title" />
                         </div>
                     </div>
 
                     <div class="sm:col-span-4">
-                        <x-form-label for="salary">Salary</x-form-label>
+                        <x-forms.label for="salary">Salary</x-forms.label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="salary" id="salary" placeholder="$50,000 Per Year"
-                                required />
-                            <x-form-error name="salary" />
+                            <x-forms.input type="text" name="salary" id="salary" placeholder="$50,000 Per Year"
+                                :value="old('salary')" required />
+                            <x-forms.error name="salary" />
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
 
         <div class="mt-6 flex items-center justify-start gap-x-6">
             <button type="button" class="text-sm font-semibold leading-6 text-foreground">Cancel</button>
-            <x-form-button>Save</x-form-button>
+            <x-forms.button>Save</x-forms.button>
         </div>
     </form>
 </x-layout>

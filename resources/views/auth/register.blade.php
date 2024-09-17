@@ -16,32 +16,32 @@
                 </div>
                 <div class="flex flex-col gap-5">
                     <div class="sm:col-span-4">
-                        <x-form-label for="name">Name</x-form-label>
+                        <x-forms.label for="name">Name</x-forms.label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="name" id="name" :value="old('name')" required />
-                            <x-form-error name="name" />
+                            <x-forms.input type="text" name="name" id="name" :value="old('name')" required />
+                            <x-forms.error name="name" />
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <x-form-label for="email">Email</x-form-label>
+                        <x-forms.label for="email">Email</x-forms.label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="email" id="email" :value="old('email')" required />
-                            <x-form-error name="email" />
+                            <x-forms.input type="text" name="email" id="email" :value="old('email')" required />
+                            <x-forms.error name="email" />
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <x-form-label for="password">Password</x-form-label>
+                        <x-forms.label for="password">Password</x-forms.label>
                         <div class="mt-2">
-                            <x-form-input type="password" name="password" id="password" required />
-                            <x-form-error name="password" />
+                            <x-forms.input type="password" name="password" id="password" required />
+                            <x-forms.error name="password" />
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <x-form-label for="password_confirmation">Confirm Password</x-form-label>
+                        <x-forms.label for="password_confirmation">Confirm Password</x-forms.label>
                         <div class="mt-2">
-                            <x-form-input type="password" name="password_confirmation" id="password_confirmation"
+                            <x-forms.input type="password" name="password_confirmation" id="password_confirmation"
                                 required />
-                            <x-form-error name="password_confirmation" />
+                            <x-forms.error name="password_confirmation" />
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
 
         <div class="mt-6 flex items-center justify-start gap-x-6">
             <a href="/" class="text-sm font-semibold leading-6 text-foreground">Cancel</a>
-            <x-form-button>Register</x-form-button>
+            <x-forms.button>Register</x-forms.button>
         </div>
     </form>
 </x-layout>

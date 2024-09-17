@@ -19,7 +19,7 @@
             <form method="POST" action="/logout">
                 @csrf
 
-                <x-form-button>Sign Out</x-form-button>
+                <x-forms.button>Sign Out</x-forms.button>
             </form>
         @endauth
     </div>

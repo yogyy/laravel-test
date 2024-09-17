@@ -16,15 +16,15 @@
                 </div>
                 <div class="flex flex-col gap-5">
                     <div class="sm:col-span-4">
-                        <x-form-label for="email">Email</x-form-label>
+                        <x-forms.label for="email">Email</x-forms.label>
                         <div class="mt-2">
-                            <x-form-input type="text" name="email" id="email" :value="old('email')" required />
+                            <x-forms.input type="text" name="email" id="email" :value="old('email')" required />
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <x-form-label for="password">Password</x-form-label>
+                        <x-forms.label for="password">Password</x-forms.label>
                         <div class="mt-2">
-                            <x-form-input type="password" name="password" id="password" required />
+                            <x-forms.input type="password" name="password" id="password" required />
                         </div>
                     </div>
                     @if ($errors->any())
@@ -38,7 +38,7 @@
 
         <div class="mt-6 flex items-center justify-start gap-x-6">
             <a href="/" class="text-sm font-semibold leading-6 text-foreground">Cancel</a>
-            <x-form-button>Login</x-form-button>
+            <x-forms.button>Login</x-forms.button>
         </div>
     </form>
 </x-layout>
